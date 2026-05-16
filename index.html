@@ -63,7 +63,6 @@
       background: #ffffff;
       border-radius: 28px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-      transition: all 0.2s;
     }
     .profile-img-area {
       width: 100%;
@@ -73,10 +72,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px dashed #adb5bd;
       overflow: hidden;
       position: relative;
-      cursor: pointer;
     }
     .profile-img-area img {
       width: 100%;
@@ -84,45 +81,22 @@
       object-fit: cover;
       display: block;
     }
-    .upload-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0,0,0,0.65);
-      color: white;
-      text-align: center;
-      font-size: 0.8rem;
-      padding: 6px;
-      font-weight: 500;
-      opacity: 0;
-      transition: opacity 0.2s;
-      pointer-events: none;
-    }
-    .profile-img-area:hover .upload-overlay {
-      opacity: 1;
-    }
-    .modal-screenshot-area {
-      background: #f8f9fc;
-      border-radius: 20px;
-      border: 2px dashed #cbd5e1;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-    .modal-screenshot-area:hover {
-      border-color: #0d6efd;
-      background-color: #f1f5ff;
-    }
-    .preview-img-modal {
-      max-height: 55vh;
+    .carousel-img-fixed {
+      height: 480px;
       object-fit: contain;
-      width: auto;
-      max-width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      background: #f1f5f9;
+      border-radius: 20px;
     }
-    .btn-upload-icon {
-      transition: 0.1s;
+    .screenshot-carousel-item {
+      background: #f8fafc;
+      border-radius: 24px;
+      padding: 1rem;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      background-color: #0a58ca;
+      border-radius: 50%;
+      padding: 20px;
+      background-size: 60%;
     }
     footer {
       background: #0f212e;
@@ -131,6 +105,9 @@
     @media (max-width: 768px) {
       .section-title {
         font-size: 1.5rem;
+      }
+      .carousel-img-fixed {
+        height: 280px;
       }
     }
   </style>
@@ -160,14 +137,10 @@
     <div class="row align-items-center g-5">
       <div class="col-md-5 col-lg-4">
         <div class="profile-placeholder p-3">
-          <div class="profile-img-area" id="profileClickArea">
-            <img id="profileImage" src="https://via.placeholder.com/400x400?text=Click+to+Upload+Photo" alt="Profile placeholder" style="width:100%; height:100%; object-fit:cover;">
-            <div class="upload-overlay">
-              <i class="bi bi-camera-fill me-1"></i> Replace photo
-            </div>
+          <div class="profile-img-area">
+            <img id="profileImage" src="IMAGE/test5.png" alt="Emmar John Canas" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Image+Not+Found';">
           </div>
-          <input type="file" id="photoUploadInput" accept="image/jpeg,image/png,image/jpg" style="display: none;">
-          <p class="text-muted small text-center mt-2 mb-0"><i class="bi bi-info-circle"></i> Click image to upload your picture</p>
+          <p class="text-muted small text-center mt-2 mb-0"><i class="bi bi-info-circle"></i> Profile photo (IMAGE/test5.png)</p>
         </div>
       </div>
       <div class="col-md-7 col-lg-8">
@@ -222,8 +195,8 @@
           <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Collaborated with the team to complete tasks and meet system requirements (300-hour internship).</li>
         </ul>
         <div class="mt-4">
-          <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#internshipModal">
-            <i class="bi bi-image me-2"></i>View Internship Screenshot
+          <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#internshipScreenshotModal">
+            <i class="bi bi-images me-2"></i>View Internship Screenshots
           </button>
         </div>
       </div>
@@ -251,8 +224,8 @@
               <span class="skill-badge"><i class="bi bi-envelope"></i> PhpMailer</span>
             </div>
             <div class="mt-4">
-              <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#capstoneModal">
-                <i class="bi bi-display me-2"></i>View Project Screenshot
+              <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#capstoneScreenshotModal">
+                <i class="bi bi-display me-2"></i>View Project Screenshots
               </button>
             </div>
           </div>
@@ -374,19 +347,31 @@
   </div>
 </footer>
 
-<div class="modal fade" id="internshipModal" tabindex="-1" aria-labelledby="internshipModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content rounded-4 border-0 shadow">
+<!-- INTERNSHIP MODAL: fixed images test1.png and test2.png from IMAGE folder -->
+<div class="modal fade" id="internshipScreenshotModal" tabindex="-1" aria-labelledby="internshipModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content rounded-4 border-0 shadow-lg">
       <div class="modal-header bg-light border-0 rounded-top-4">
-        <h5 class="modal-title fw-bold" id="internshipModalLabel"><i class="bi bi-briefcase-fill me-2 text-primary"></i> Internship Screenshot – Backend System</h5>
+        <h5 class="modal-title fw-bold" id="internshipModalLabel"><i class="bi bi-briefcase-fill me-2 text-primary"></i> Internship – Backend System Screenshots</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body p-4 text-center">
-        <div id="internshipScreenshotContainer" class="modal-screenshot-area p-4 d-flex flex-column align-items-center justify-content-center" style="min-height: 280px;">
-          <img id="internshipPreviewImg" src="https://via.placeholder.com/800x450?text=No+Screenshot+Uploaded+Yet%0AClick+to+Upload+Image" alt="Internship screenshot placeholder" class="preview-img-modal mb-3" style="max-width:100%; cursor:pointer;">
-          <input type="file" id="internshipFileInput" accept="image/jpeg,image/png,image/jpg" style="display: none;">
-          <button class="btn btn-outline-primary rounded-pill mt-2 btn-upload-icon" id="internshipUploadBtn"><i class="bi bi-cloud-upload"></i> Upload Screenshot</button>
-          <p class="text-muted small mt-3 mb-0"><i class="bi bi-info-circle"></i> Click on image or button to insert your project screenshot</p>
+      <div class="modal-body p-4">
+        <div id="internshipCarousel" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-inner" id="internshipCarouselInner">
+            <!-- Slides will be dynamically built with test1.png, test2.png -->
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#internshipCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#internshipCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center gap-3 mt-4">
+          <button class="btn btn-outline-secondary rounded-pill" id="addInternshipSlideBtn"><i class="bi bi-plus-circle"></i> Add new screenshot slide</button>
+          <span class="text-muted small align-self-center"><i class="bi bi-images"></i> Add more screenshots if needed</span>
         </div>
       </div>
       <div class="modal-footer bg-light border-0 rounded-bottom-4">
@@ -396,19 +381,31 @@
   </div>
 </div>
 
-<div class="modal fade" id="capstoneModal" tabindex="-1" aria-labelledby="capstoneModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content rounded-4 border-0 shadow">
+<!-- CAPSTONE MODAL: fixed images test3.png and test4.png from IMAGE folder -->
+<div class="modal fade" id="capstoneScreenshotModal" tabindex="-1" aria-labelledby="capstoneModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content rounded-4 border-0 shadow-lg">
       <div class="modal-header bg-light border-0 rounded-top-4">
-        <h5 class="modal-title fw-bold" id="capstoneModalLabel"><i class="bi bi-kanban-fill me-2 text-primary"></i> Capstone Screenshot – SMS III System</h5>
+        <h5 class="modal-title fw-bold" id="capstoneModalLabel"><i class="bi bi-kanban-fill me-2 text-primary"></i> Capstone – SMS III System Screenshots</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body p-4 text-center">
-        <div id="capstoneScreenshotContainer" class="modal-screenshot-area p-4 d-flex flex-column align-items-center justify-content-center" style="min-height: 280px;">
-          <img id="capstonePreviewImg" src="https://via.placeholder.com/800x450?text=No+Screenshot+Uploaded+Yet%0AClick+to+Upload+Image" alt="Capstone screenshot placeholder" class="preview-img-modal mb-3" style="max-width:100%; cursor:pointer;">
-          <input type="file" id="capstoneFileInput" accept="image/jpeg,image/png,image/jpg" style="display: none;">
-          <button class="btn btn-outline-primary rounded-pill mt-2 btn-upload-icon" id="capstoneUploadBtn"><i class="bi bi-cloud-upload"></i> Upload Screenshot</button>
-          <p class="text-muted small mt-3 mb-0"><i class="bi bi-info-circle"></i> Click on image or button to insert your project screenshot</p>
+      <div class="modal-body p-4">
+        <div id="capstoneCarousel" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-inner" id="capstoneCarouselInner">
+            <!-- Slides with test3.png, test4.png -->
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#capstoneCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#capstoneCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center gap-3 mt-4">
+          <button class="btn btn-outline-secondary rounded-pill" id="addCapstoneSlideBtn"><i class="bi bi-plus-circle"></i> Add new screenshot slide</button>
+          <span class="text-muted small align-self-center"><i class="bi bi-images"></i> Add more screenshots if needed</span>
         </div>
       </div>
       <div class="modal-footer bg-light border-0 rounded-bottom-4">
@@ -422,83 +419,108 @@
 
 <script>
   (function() {
-    // Profile photo upload logic
-    const profileImg = document.getElementById('profileImage');
-    const clickArea = document.getElementById('profileClickArea');
-    const fileInputProfile = document.getElementById('photoUploadInput');
+    // Helper: create carousel item with given image src, alt text, active flag
+    function createSlideItem(imageUrl, altText, isActive = false) {
+      const div = document.createElement('div');
+      div.className = 'carousel-item' + (isActive ? ' active' : '');
+      div.innerHTML = `
+        <div class="screenshot-carousel-item text-center p-3">
+          <img src="${imageUrl}" class="d-block w-100 carousel-img-fixed" alt="${altText}" style="border-radius: 20px; object-fit: contain;">
+        </div>
+      `;
+      return div;
+    }
+
+    // INTERNSHIP CAROUSEL: initial images test1.png, test2.png from IMAGE folder
+    const internshipCarouselInner = document.getElementById('internshipCarouselInner');
+    let internshipSlideCount = 0;
     
-    clickArea.addEventListener('click', function(e) {
-      fileInputProfile.click();
-    });
-    
-    fileInputProfile.addEventListener('change', function(event) {
-      const file = event.target.files[0];
-      if (file && (file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg')) {
-        const reader = new FileReader();
-        reader.onload = function(loadEvent) {
-          profileImg.src = loadEvent.target.result;
-          profileImg.alt = "Uploaded profile photo";
-        };
-        reader.readAsDataURL(file);
-      } else if (file) {
-        alert("Please upload a valid image file (JPEG or PNG).");
-      }
-    });
-    
-    // Internship modal screenshot handling
-    const internshipImg = document.getElementById('internshipPreviewImg');
-    const internshipFileInput = document.getElementById('internshipFileInput');
-    const internshipUploadBtn = document.getElementById('internshipUploadBtn');
-    
-    function triggerInternshipUpload() {
-      internshipFileInput.click();
+    function initInternshipSlides() {
+      internshipCarouselInner.innerHTML = '';
+      internshipSlideCount = 0;
+      const img1 = "IMAGE/test1.png";
+      const img2 = "IMAGE/test2.png";
+      const fallbackPlaceholder = "https://via.placeholder.com/1200x600?text=Image+Not+Found";
+      // create slides with error handling on image load failure
+      const slide1 = createSlideItem(img1, "Internship Screenshot 1", true);
+      const slide2 = createSlideItem(img2, "Internship Screenshot 2", false);
+      
+      // add fallback for images that fail to load
+      const imgs1 = slide1.querySelector('img');
+      const imgs2 = slide2.querySelector('img');
+      if (imgs1) { imgs1.onerror = function() { this.src = fallbackPlaceholder; this.alt = "Placeholder: test1.png missing"; }; }
+      if (imgs2) { imgs2.onerror = function() { this.src = fallbackPlaceholder; this.alt = "Placeholder: test2.png missing"; }; }
+      
+      internshipCarouselInner.appendChild(slide1);
+      internshipCarouselInner.appendChild(slide2);
+      internshipSlideCount = 2;
     }
     
-    internshipImg.addEventListener('click', triggerInternshipUpload);
-    internshipUploadBtn.addEventListener('click', triggerInternshipUpload);
-    
-    internshipFileInput.addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (file && (file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg')) {
-        const reader = new FileReader();
-        reader.onload = function(ev) {
-          internshipImg.src = ev.target.result;
-          internshipImg.alt = "Internship screenshot";
-        };
-        reader.readAsDataURL(file);
-      } else if (file) {
-        alert("Please select a valid image file (JPEG or PNG).");
-      }
-    });
-    
-    // Capstone modal screenshot handling
-    const capstoneImg = document.getElementById('capstonePreviewImg');
-    const capstoneFileInput = document.getElementById('capstoneFileInput');
-    const capstoneUploadBtn = document.getElementById('capstoneUploadBtn');
-    
-    function triggerCapstoneUpload() {
-      capstoneFileInput.click();
+    function addInternshipSlide() {
+      const placeholderImg = "https://via.placeholder.com/1200x600?text=New+Screenshot+Placeholder+%23" + (internshipSlideCount+1);
+      const newSlide = createSlideItem(placeholderImg, "Additional screenshot", false);
+      internshipCarouselInner.appendChild(newSlide);
+      internshipSlideCount++;
+      // set error fallback for new slide placeholder
+      const newImg = newSlide.querySelector('img');
+      if (newImg) { newImg.onerror = function() { this.src = "https://via.placeholder.com/1200x600?text=Image+Not+Found"; }; }
     }
     
-    capstoneImg.addEventListener('click', triggerCapstoneUpload);
-    capstoneUploadBtn.addEventListener('click', triggerCapstoneUpload);
+    // CAPSTONE CAROUSEL: initial images test3.png, test4.png
+    const capstoneCarouselInner = document.getElementById('capstoneCarouselInner');
+    let capstoneSlideCount = 0;
     
-    capstoneFileInput.addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (file && (file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg')) {
-        const reader = new FileReader();
-        reader.onload = function(ev) {
-          capstoneImg.src = ev.target.result;
-          capstoneImg.alt = "Capstone project screenshot";
-        };
-        reader.readAsDataURL(file);
-      } else if (file) {
-        alert("Please select a valid image file (JPEG or PNG).");
-      }
-    });
+    function initCapstoneSlides() {
+      capstoneCarouselInner.innerHTML = '';
+      capstoneSlideCount = 0;
+      const imgCap1 = "IMAGE/test3.png";
+      const imgCap2 = "IMAGE/test4.png";
+      const fallbackCap = "https://via.placeholder.com/1200x600?text=Image+Not+Found";
+      const slideCap1 = createSlideItem(imgCap1, "Capstone Screenshot 1", true);
+      const slideCap2 = createSlideItem(imgCap2, "Capstone Screenshot 2", false);
+      
+      const imgElem1 = slideCap1.querySelector('img');
+      const imgElem2 = slideCap2.querySelector('img');
+      if (imgElem1) { imgElem1.onerror = function() { this.src = fallbackCap; this.alt = "test3.png missing"; }; }
+      if (imgElem2) { imgElem2.onerror = function() { this.src = fallbackCap; this.alt = "test4.png missing"; }; }
+      
+      capstoneCarouselInner.appendChild(slideCap1);
+      capstoneCarouselInner.appendChild(slideCap2);
+      capstoneSlideCount = 2;
+    }
     
-    // Optional: for reset / but no need. Keep user-friendly placeholder
-    // Ensure that when modal closed, no data loss. All good.
+    function addCapstoneSlide() {
+      const placeholderCap = "https://via.placeholder.com/1200x600?text=New+Capstone+Screenshot+%23" + (capstoneSlideCount+1);
+      const newCapSlide = createSlideItem(placeholderCap, "Additional capstone screenshot", false);
+      capstoneCarouselInner.appendChild(newCapSlide);
+      capstoneSlideCount++;
+      const newCapImg = newCapSlide.querySelector('img');
+      if (newCapImg) { newCapImg.onerror = function() { this.src = "https://via.placeholder.com/1200x600?text=Image+Not+Found"; }; }
+    }
+    
+    // Initialize both carousels
+    initInternshipSlides();
+    initCapstoneSlides();
+    
+    // Attach button events for adding slides (remove any instructional overlays/alerts, just functional)
+    const addInternBtn = document.getElementById('addInternshipSlideBtn');
+    if (addInternBtn) {
+      addInternBtn.addEventListener('click', addInternshipSlide);
+    }
+    const addCapBtn = document.getElementById('addCapstoneSlideBtn');
+    if (addCapBtn) {
+      addCapBtn.addEventListener('click', addCapstoneSlide);
+    }
+    
+    // Small tweak: reinitialize carousel instance when new slides added? Bootstrap carousel works dynamically.
+    // For newly added slides we don't need to rebind, but to ensure carousel controls handle new items we just let Bootstrap manage.
+    // Also handle profile image error fallback
+    const profileImgElem = document.getElementById('profileImage');
+    if (profileImgElem) {
+      profileImgElem.onerror = function() {
+        this.src = "https://via.placeholder.com/400x400?text=test5.png+Not+Found";
+      };
+    }
   })();
 </script>
 </body>
