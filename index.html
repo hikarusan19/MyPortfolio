@@ -1,527 +1,757 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Emmar John Canas | Back-End Developer Portfolio</title>
-  <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f4f7fc;
-      color: #1a2c3e;
-      scroll-behavior: smooth;
-    }
-    .section-title {
-      font-weight: 700;
-      font-size: 1.75rem;
-      position: relative;
-      display: inline-block;
-      margin-bottom: 2rem;
-      letter-spacing: -0.3px;
-    }
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: #0d6efd;
-      border-radius: 4px;
-    }
-    .card-hover {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1) !important;
-    }
-    .skill-badge {
-      background-color: #e9ecef;
-      color: #0a2b3e;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .bg-soft-primary {
-      background-color: #e2edff;
-    }
-    .profile-placeholder {
-      background: #ffffff;
-      border-radius: 28px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-    }
-    .profile-img-area {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background-color: #f8f9fa;
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-    .profile-img-area img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .carousel-img-fixed {
-      height: 480px;
-      object-fit: contain;
-      background: #f1f5f9;
-      border-radius: 20px;
-    }
-    .screenshot-carousel-item {
-      background: #f8fafc;
-      border-radius: 24px;
-      padding: 1rem;
-    }
-    .carousel-control-prev-icon, .carousel-control-next-icon {
-      background-color: #0a58ca;
-      border-radius: 50%;
-      padding: 20px;
-      background-size: 60%;
-    }
-    footer {
-      background: #0f212e;
-      color: #cbd5e1;
-    }
-    @media (max-width: 768px) {
-      .section-title {
-        font-size: 1.5rem;
-      }
-      .carousel-img-fixed {
-        height: 280px;
-      }
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Emmar John Canas | Back-End Developer Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top py-2">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-dark" href="#">Emmar John Canas</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMain"
+          aria-controls="navbarMain"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top py-2">
-  <div class="container">
-    <a class="navbar-brand fw-bold text-dark" href="#">Emmar John Canas</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#experience">Experience</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<section class="py-5">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-md-5 col-lg-4">
-        <div class="profile-placeholder p-3">
-          <div class="profile-img-area">
-            <img id="profileImage" src="IMAGE/test5.png" alt="Emmar John Canas" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Image+Not+Found';">
+    <section class="py-5">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-md-5 col-lg-4">
+            <div class="profile-placeholder p-3">
+              <div class="profile-img-area">
+                <img
+                  id="profileImage"
+                  src="IMAGE/profile.png"
+                  alt="Emmar John Canas"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x400?text=Profile+Image+Not+Found'
+                  "
+                />
+              </div>
+            </div>
           </div>
-          <p class="text-muted small text-center mt-2 mb-0"><i class="bi bi-info-circle"></i> Profile photo (IMAGE/test5.png)</p>
-        </div>
-      </div>
-      <div class="col-md-7 col-lg-8">
-        <h1 class="display-5 fw-bold mb-2">EMMAR JOHN CANAS</h1>
-        <p class="fs-4 text-primary fw-semibold mb-3">INFORMATION TECHNOLOGY | BACK-END DEVELOPER</p>
-        <p class="lead mb-4">Passionate problem-solver and back-end developer intern experienced in Node.js, Supabase, and secure system design. I build efficient and innovative software solutions.</p>
-        <div class="d-flex flex-wrap gap-3 mb-4">
-          <a href="mailto:emmarijohncanas1@gmail.com" class="btn btn-outline-secondary rounded-pill"><i class="bi bi-envelope"></i> Email</a>
-          <a href="https://www.linkedin.com/in/emmarijohncanas/" target="_blank" class="btn btn-outline-secondary rounded-pill"><i class="bi bi-linkedin"></i> LinkedIn</a>
-          <a href="tel:+639519952212" class="btn btn-outline-secondary rounded-pill"><i class="bi bi-telephone"></i> +63 951 995 2212</a>
-        </div>
-        <div class="d-flex flex-wrap gap-2">
-          <span class="badge bg-light text-dark p-2 px-3 rounded-pill border"><i class="bi bi-geo-alt"></i> Caloocan City</span>
-          <span class="badge bg-light text-dark p-2 px-3 rounded-pill border"><i class="bi bi-globe"></i> English / Filipino / Cebuano</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          <div class="col-md-7 col-lg-8">
+            <h1 class="display-4 fw-extrabold text-dark tracking-tight mb-1">
+              EMMAR JOHN CAÑAS
+            </h1>
+            <p
+              class="text-primary fw-semibold small tracking-widest text-uppercase mb-3"
+              style="letter-spacing: 0.1rem"
+            >
+              Information Technology
+              <span class="text-muted mx-1">|</span> Back-End Developer
+            </p>
+            <p
+              class="lead text-secondary fs-6 lh-base mb-4"
+              style="max-width: 650px"
+            >
+              Passionate problem-solver and back-end developer intern
+              experienced in Node.js, Supabase, React.js, and secure system
+              design. I build efficient and innovative software solutions with
+              modern full-stack capabilities.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <a
+                href="mailto:emmarijohncanas1@gmail.com"
+                class="btn btn-primary rounded-pill px-3 shadow-sm"
+              >
+                <i class="bi bi-envelope-fill me-1"></i> Email
+              </a>
+              <a
+                href="https://www.linkedin.com/in/emmarijohncanas/"
+                target="_blank"
+                class="btn btn-outline-secondary rounded-pill px-3"
+              >
+                <i class="bi bi-linkedin me-1"></i> LinkedIn
+              </a>
+              <a
+                href="tel:+639519952212"
+                class="btn btn-outline-secondary rounded-pill px-3"
+              >
+                <i class="bi bi-telephone-fill me-1"></i> +63 951 995 2212
+              </a>
+            </div>
 
-<section id="about" class="py-4">
-  <div class="container">
-    <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm">
-      <h2 class="section-title">Professional Profile</h2>
-      <p class="fs-5">Information Technology student and Back-End Developer Intern who is passionate about problem-solving and exploring new knowledge in computer technology. While I may not always know the answer, I know how to find it and continuously improve my skills. I have hands-on experience developing and maintaining backend systems using Node.js and Supabase, including authentication, role-based access control, session management, and database operations. I am eager to learn, adaptable to challenges, and motivated to apply my skills in creating secure, efficient, and innovative software solutions for the industry.</p>
-      <div class="mt-3 row">
-        <div class="col-md-6">
-          <p><i class="bi bi-calendar-check text-primary me-2"></i> <strong>Education:</strong> BS Information Technology - Bestlink College of the Philippines (Completing 2026)</p>
-        </div>
-        <div class="col-md-6">
-          <p><i class="bi bi-award text-primary me-2"></i> <strong>Major:</strong> Information Management</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience" class="py-5">
-  <div class="container">
-    <h2 class="section-title">Internship Experience</h2>
-    <div class="card border-0 shadow-sm rounded-4 mb-4 card-hover">
-      <div class="card-body p-4 p-md-5">
-        <div class="d-flex flex-wrap justify-content-between align-items-start mb-3">
-          <h3 class="h4 fw-bold">Back-End Programming Intern (OJT)</h3>
-          <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill">Dec 2025 – Mar 2026</span>
-        </div>
-        <p class="fs-5 fw-medium text-secondary">CAELUM FINANCIAL SOLUTIONS / ALLIANZPNB LIFE</p>
-        <ul class="list-unstyled mt-3">
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Developed and maintained Login System backend using Node.js and Supabase.</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Implemented role-based access control and Admin user management.</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Assisted with authentication, authorization, and session security.</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Collaborated with the team to complete tasks and meet system requirements (300-hour internship).</li>
-        </ul>
-        <div class="mt-4">
-          <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#internshipScreenshotModal">
-            <i class="bi bi-images me-2"></i>View Internship Screenshots
-          </button>
+            <div class="d-flex flex-wrap gap-2">
+              <span
+                class="badge bg-light text-secondary border border-light-subtle px-3 py-2 rounded-pill fw-normal"
+              >
+                <i class="bi bi-geo-alt-fill text-danger me-1"></i> Caloocan
+                City
+              </span>
+              <span
+                class="badge bg-light text-secondary border border-light-subtle px-3 py-2 rounded-pill fw-normal"
+              >
+                <i class="bi bi-translate text-info me-1"></i> English /
+                Filipino / Cebuano
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="projects" class="py-4">
-  <div class="container">
-    <h2 class="section-title">Capstone Project</h2>
-    <div class="row g-4">
-      <div class="col-lg-8 col-md-12">
-        <div class="card h-100 border-0 shadow-sm rounded-4 card-hover">
+    <section id="about" class="py-4">
+      <div class="container">
+        <div
+          class="bg-white p-4 p-md-5 rounded-4 shadow-sm border border-light"
+        >
+          <h2 class="section-title fw-bold text-dark mb-3">
+            Professional Profile
+          </h2>
+          <p class="text-secondary lh-base mb-4" style="font-size: 1.05rem">
+            Information Technology student and Back-End Developer Intern who is
+            passionate about problem-solving and exploring new knowledge in
+            computer technology. While I may not always know the answer, I know
+            how to find it and continuously improve my skills. I have hands-on
+            experience developing and maintaining backend systems using
+            <strong class="text-dark">Node.js, Supabase, and PostgreSQL</strong>
+            including authentication, role-based access control, session
+            management, and database operations. I am eager to learn, adaptable
+            to challenges, and motivated to apply my skills in creating secure,
+            efficient, and innovative software solutions for the industry.
+          </p>
+          <hr class="text-muted opacity-25 my-4" />
+          <div class="row g-3">
+            <div class="col-md-7">
+              <p class="mb-0 text-secondary" style="font-size: 0.95rem">
+                <i class="bi bi-calendar-check text-primary me-2"></i>
+                <strong class="text-dark">Education:</strong> BS Information
+                Technology — Bestlink College of the Philippines (Completing
+                2026)
+              </p>
+            </div>
+            <div class="col-md-5">
+              <p class="mb-0 text-secondary" style="font-size: 0.95rem">
+                <i class="bi bi-award text-primary me-2"></i>
+                <strong class="text-dark">Major:</strong> Information Management
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-5">
+      <div class="container">
+        <h2 class="section-title">Internship Experience</h2>
+        <div class="card border-0 shadow-sm rounded-4 mb-4 card-hover">
           <div class="card-body p-4 p-md-5">
-            <div class="d-flex align-items-center mb-3">
-              <i class="bi bi-diagram-3 fs-1 text-primary me-3"></i>
-              <h3 class="h3 fw-semibold mb-0">SMS III: Registrar's Student Information System</h3>
+            <div
+              class="d-flex flex-wrap justify-content-between align-items-start mb-3"
+            >
+              <h3 class="h4 fw-bold">Back-End Programming Intern (OJT)</h3>
+              <span
+                class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill"
+                >Dec 2025 – Mar 2026</span
+              >
             </div>
-            <p class="badge bg-secondary-subtle text-dark mb-3 p-2 px-3 rounded-pill">PHP, JavaScript, Bootstrap, PhpMailer, MySQL</p>
-            <p>Developed to reduce long queues, manual paperwork, and delays in registrar document processing. Created an online document request and tracking system to provide students with faster and more convenient registrar services. Designed to centralize and automate student record management for improved accuracy, transparency, and efficiency. Built to modernize registrar operations through a secure and scalable web-based platform.</p>
-            <div class="mt-3 pt-2">
-              <span class="skill-badge"><i class="bi bi-database"></i> MySQL</span>
-              <span class="skill-badge"><i class="bi bi-code-slash"></i> PHP</span>
-              <span class="skill-badge"><i class="bi bi-bootstrap-fill"></i> Bootstrap</span>
-              <span class="skill-badge"><i class="bi bi-envelope"></i> PhpMailer</span>
+            <p class="fs-5 fw-medium text-secondary">
+              CAELUM FINANCIAL SOLUTIONS / ALLIANZPNB LIFE
+            </p>
+            <!-- Tech stack used in OJT -->
+            <div class="d-flex flex-wrap gap-2 my-3">
+              <span class="tech-stack border bg-light"
+                ><i class="bi bi-node-plus text-success"></i> Node.js</span
+              >
+              <span class="tech-stack border bg-light"
+                ><i class="bi bi-cloud-check text-primary"></i> Supabase</span
+              >
+              <span class="tech-stack border bg-light"
+                ><i class="bi bi-braces text-info"></i> React.js</span
+              >
+              <span class="tech-stack border bg-light"
+                ><i class="bi bi-database"></i> PostgreSQL</span
+              >
             </div>
+            <ul class="list-unstyled mt-3">
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                Developed and maintained Login System backend using
+                <strong>Node.js + Supabase</strong> and integrated with
+                <strong>React.js</strong> frontend components.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                Implemented role-based access control, Admin user management and
+                session security using Supabase Auth & Row Level Security.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i> Built
+                RESTful API endpoints with Express.js and performed real-time
+                database operations with Supabase client.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                Collaborated with the team to complete tasks and meet system
+                requirements (300-hour internship).
+              </li>
+            </ul>
             <div class="mt-4">
-              <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#capstoneScreenshotModal">
-                <i class="bi bi-display me-2"></i>View Project Screenshots
+              <button
+                type="button"
+                class="btn btn-primary rounded-pill px-4"
+                data-bs-toggle="modal"
+                data-bs-target="#internshipScreenshotModal"
+              >
+                <i class="bi bi-images me-2"></i>View Internship Screenshots
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="card h-100 border-0 shadow-sm rounded-4 bg-soft-primary">
-          <div class="card-body p-4">
-            <i class="bi bi-trophy-fill fs-1 text-primary mb-3 d-block"></i>
-            <h5 class="fw-bold">Key Impact</h5>
-            <p>Automated registrar operations, online tracking module, reduced processing delays, and improved student experience. Fully scalable web-based platform.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="skills" class="py-5 bg-white">
-  <div class="container">
-    <h2 class="section-title">Technical Skills & Tools</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="p-3 bg-light rounded-4 h-100">
-          <h5 class="fw-bold mb-3"><i class="bi bi-code-square me-2"></i> Programming</h5>
-          <div class="d-flex flex-wrap gap-2 mb-4">
-            <span class="skill-badge">Java (Basic)</span>
-            <span class="skill-badge">C (Basic)</span>
-            <span class="skill-badge">C++ (Basic)</span>
-          </div>
-          <h5 class="fw-bold mb-3"><i class="bi bi-window-stack me-2"></i> Web Development</h5>
-          <div class="d-flex flex-wrap gap-2 mb-4">
-            <span class="skill-badge">HTML5</span>
-            <span class="skill-badge">CSS3</span>
-            <span class="skill-badge">PHP (Basic)</span>
-            <span class="skill-badge">Node.js (Basic)</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="p-3 bg-light rounded-4 h-100">
-          <h5 class="fw-bold mb-3"><i class="bi bi-server me-2"></i> Database & Backend</h5>
-          <div class="d-flex flex-wrap gap-2 mb-4">
-            <span class="skill-badge">MySQL</span>
-            <span class="skill-badge">Supabase</span>
-          </div>
-          <h5 class="fw-bold mb-3"><i class="bi bi-lightbulb me-2"></i> Other Skills</h5>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="skill-badge">Problem-solving</span>
-            <span class="skill-badge">Debugging</span>
-            <span class="skill-badge">Analytical thinking</span>
-            <span class="skill-badge">Authentication & RBAC</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="mt-4 row">
-      <div class="col-12">
-        <div class="p-3 rounded-4 border bg-white">
-          <p class="mb-0 fw-medium"><i class="bi bi-chat-dots text-primary me-2"></i> Languages: English (fluent) · Filipino · Cebuano</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-5">
-  <div class="container">
-    <h2 class="section-title">References</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card border-0 shadow-sm rounded-4 h-100">
-          <div class="card-body p-4">
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-person-badge fs-3 me-2 text-primary"></i>
-              <h5 class="card-title fw-bold mb-0">MR. ALEJANDRO B. ADOVAS</h5>
+    <section id="projects" class="py-4">
+      <div class="container">
+        <h2 class="section-title">Capstone Project</h2>
+        <div class="row g-4">
+          <div class="col-lg-8 col-md-12">
+            <div class="card h-100 border-0 shadow-sm rounded-4 card-hover">
+              <div class="card-body p-4 p-md-5">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-diagram-3 fs-1 text-primary me-3"></i>
+                  <h3 class="h3 fw-semibold mb-0">
+                    SMS III: Registrar's Student Information System
+                  </h3>
+                </div>
+                <p
+                  class="badge bg-secondary-subtle text-dark mb-3 p-2 px-3 rounded-pill"
+                >
+                  PHP, JavaScript, Bootstrap, PhpMailer, MySQL
+                </p>
+                <p>
+                  Developed to reduce long queues, manual paperwork, and delays
+                  in registrar document processing. Created an online document
+                  request and tracking system to provide students with faster
+                  and more convenient registrar services. Designed to centralize
+                  and automate student record management for improved accuracy,
+                  transparency, and efficiency. Built to modernize registrar
+                  operations through a secure and scalable web-based platform.
+                </p>
+                <div class="mt-3 pt-2">
+                  <span class="skill-badge"
+                    ><i class="bi bi-database"></i> MySQL</span
+                  >
+                  <span class="skill-badge"
+                    ><i class="bi bi-code-slash"></i> PHP</span
+                  >
+                  <span class="skill-badge"
+                    ><i class="bi bi-bootstrap-fill"></i> Bootstrap</span
+                  >
+                  <span class="skill-badge"
+                    ><i class="bi bi-envelope"></i> PhpMailer</span
+                  >
+                </div>
+                <div class="mt-4">
+                  <button
+                    type="button"
+                    class="btn btn-primary rounded-pill px-4"
+                    data-bs-toggle="modal"
+                    data-bs-target="#capstoneScreenshotModal"
+                  >
+                    <i class="bi bi-display me-2"></i>View Project Screenshots
+                  </button>
+                </div>
+              </div>
             </div>
-            <p class="text-secondary mb-1">Research Adviser</p>
-            <p><i class="bi bi-telephone-fill me-2"></i> 09054622478</p>
           </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card border-0 shadow-sm rounded-4 h-100">
-          <div class="card-body p-4">
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-person-check fs-3 me-2 text-primary"></i>
-              <h5 class="card-title fw-bold mb-0">MS. STEPHANIE ALIAN</h5>
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="card h-100 border-0 shadow-sm rounded-4 bg-soft-primary"
+            >
+              <div class="card-body p-4">
+                <i class="bi bi-trophy-fill fs-1 text-primary mb-3 d-block"></i>
+                <h5 class="fw-bold">Key Impact</h5>
+                <p>
+                  Automated registrar operations, online tracking module,
+                  reduced processing delays, and improved student experience.
+                  Fully scalable web-based platform.
+                </p>
+                <hr />
+                <div class="mt-2">
+                  <small class="text-muted"
+                    >Built with modern LAMP stack and JS frontend.</small
+                  >
+                </div>
+              </div>
             </div>
-            <p class="text-secondary mb-1">Head Admin</p>
-            <p><i class="bi bi-telephone-fill me-2"></i> 09637320573</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-5 bg-white">
+      <div class="container">
+        <h2 class="section-title">Technical Skills & Tools</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-4 h-100">
+              <h5 class="fw-bold mb-3">
+                <i class="bi bi-code-square me-2"></i> Programming & Frameworks
+              </h5>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="skill-badge"
+                  ><i class="bi bi-node-plus"></i> Node.js</span
+                >
+                <span class="skill-badge"
+                  ><i class="bi bi-braces"></i> React.js (Basic)</span
+                >
+                <span class="skill-badge"
+                  ><i class="bi bi-filetype-java"></i> Java (Basic)</span
+                >
+                <span class="skill-badge"
+                  ><i class="bi bi-filetype-c"></i> C / C++ (Basic)</span
+                >
+              </div>
+              <h5 class="fw-bold mb-3">
+                <i class="bi bi-window-stack me-2"></i> Web Development
+              </h5>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="skill-badge">HTML5</span>
+                <span class="skill-badge">CSS3</span>
+                <span class="skill-badge">PHP (Basic)</span>
+                <span class="skill-badge">JavaScript ES6</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-4 h-100">
+              <h5 class="fw-bold mb-3">
+                <i class="bi bi-server me-2"></i> Database & Backend
+              </h5>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="skill-badge"
+                  ><i class="bi bi-database"></i> MySQL</span
+                >
+                <span class="skill-badge"
+                  ><i class="bi bi-cloud-sun"></i> Supabase</span
+                >
+                <span class="skill-badge"
+                  ><i class="bi bi-key"></i> Auth / RBAC</span
+                >
+                <span class="skill-badge"
+                  ><i class="bi bi-hdd-stack"></i> PostgreSQL</span
+                >
+              </div>
+              <h5 class="fw-bold mb-3">
+                <i class="bi bi-lightbulb me-2"></i> Other Skills
+              </h5>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="skill-badge">Problem-solving</span>
+                <span class="skill-badge">Debugging</span>
+                <span class="skill-badge">Analytical thinking</span>
+                <span class="skill-badge">REST APIs</span>
+                <span class="skill-badge">Session Security</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 row">
+          <div class="col-12">
+            <div class="p-3 rounded-4 border bg-white">
+              <p class="mb-0 fw-medium">
+                <i class="bi bi-chat-dots text-primary me-2"></i> Languages:
+                English (fluent) · Filipino · Cebuano
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <h2 class="section-title">References</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-person-badge fs-3 me-2 text-primary"></i>
+                  <h5 class="card-title fw-bold mb-0">
+                    MR. ALEJANDRO B. ADOVAS
+                  </h5>
+                </div>
+                <p class="text-secondary mb-1">Research Adviser</p>
+                <p><i class="bi bi-telephone-fill me-2"></i> 09054622478</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-person-check fs-3 me-2 text-primary"></i>
+                  <h5 class="card-title fw-bold mb-0">MS. STEPHANIE ALIAN</h5>
+                </div>
+                <p class="text-secondary mb-1">Head Admin</p>
+                <p><i class="bi bi-telephone-fill me-2"></i> 09637320573</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-white">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2
+              class="section-title text-center d-inline-block"
+              style="text-align: center"
+            >
+              Let's Connect
+            </h2>
+            <div class="mt-4 d-flex flex-wrap justify-content-center gap-4">
+              <a
+                href="mailto:emmarijohncanas1@gmail.com"
+                class="btn btn-outline-dark rounded-pill px-4 py-2"
+                ><i class="bi bi-envelope-fill me-2"></i>
+                emmarijohncanas1@gmail.com</a
+              >
+              <a
+                href="tel:+639519952212"
+                class="btn btn-outline-dark rounded-pill px-4 py-2"
+                ><i class="bi bi-phone-fill me-2"></i> +63 951 995 2212</a
+              >
+              <a
+                href="https://www.linkedin.com/in/emmarijohncanas/"
+                target="_blank"
+                class="btn btn-outline-primary rounded-pill px-4 py-2"
+                ><i class="bi bi-linkedin me-2"></i> LinkedIn</a
+              >
+            </div>
+            <hr class="my-5" />
+            <p class="text-secondary">
+              <i class="bi bi-geo-alt-fill me-1"></i> 60 Bougainvillea St. Baesa
+              Rd. Brgy. 158 Caloocan City, Philippines
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-4 text-center">
+      <div class="container">
+        <p class="mb-0 small">
+          &copy; 2026 Emmar John Canas — Back-End Developer | Node.js · Supabase
+          · React.js
+        </p>
+      </div>
+    </footer>
+
+    <!-- MODAL: Internship Screenshots (test1.png, test2.png from IMAGE) -->
+    <div
+      class="modal fade"
+      id="internshipScreenshotModal"
+      tabindex="-1"
+      aria-labelledby="internshipModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+          <div class="modal-header bg-light border-0 rounded-top-4">
+            <h5 class="modal-title fw-bold" id="internshipModalLabel">
+              <i class="bi bi-briefcase-fill me-2 text-primary"></i> Internship
+              – Backend System (Node.js + Supabase + React)
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <div
+              id="internshipCarousel"
+              class="carousel slide"
+              data-bs-ride="false"
+            >
+              <div class="carousel-inner" id="internshipCarouselInner"></div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#internshipCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#internshipCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <button
+                class="btn btn-outline-secondary rounded-pill"
+                id="addInternshipSlideBtn"
+              >
+                <i class="bi bi-plus-circle"></i> Add new screenshot slide
+              </button>
+              <span class="text-muted small align-self-center"
+                ><i class="bi bi-images"></i> Add more screenshots</span
+              >
+            </div>
+          </div>
+          <div class="modal-footer bg-light border-0 rounded-bottom-4">
+            <button
+              type="button"
+              class="btn btn-secondary rounded-pill"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="contact" class="py-5 bg-white">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h2 class="section-title text-center d-inline-block" style="text-align:center;">Let's Connect</h2>
-        <div class="mt-4 d-flex flex-wrap justify-content-center gap-4">
-          <a href="mailto:emmarijohncanas1@gmail.com" class="btn btn-outline-dark rounded-pill px-4 py-2"><i class="bi bi-envelope-fill me-2"></i> emmarijohncanas1@gmail.com</a>
-          <a href="tel:+639519952212" class="btn btn-outline-dark rounded-pill px-4 py-2"><i class="bi bi-phone-fill me-2"></i> +63 951 995 2212</a>
-          <a href="https://www.linkedin.com/in/emmarijohncanas/" target="_blank" class="btn btn-outline-primary rounded-pill px-4 py-2"><i class="bi bi-linkedin me-2"></i> LinkedIn</a>
-        </div>
-        <hr class="my-5">
-        <p class="text-secondary"><i class="bi bi-geo-alt-fill me-1"></i> 60 Bougainvillea St. Baesa Rd. Brgy. 158 Caloocan City, Philippines</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-0 small">&copy; 2026 Emmar John Canas — Back-End Developer Portfolio. Built with Bootstrap.</p>
-  </div>
-</footer>
-
-<!-- INTERNSHIP MODAL: fixed images test1.png and test2.png from IMAGE folder -->
-<div class="modal fade" id="internshipScreenshotModal" tabindex="-1" aria-labelledby="internshipModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content rounded-4 border-0 shadow-lg">
-      <div class="modal-header bg-light border-0 rounded-top-4">
-        <h5 class="modal-title fw-bold" id="internshipModalLabel"><i class="bi bi-briefcase-fill me-2 text-primary"></i> Internship – Backend System Screenshots</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-4">
-        <div id="internshipCarousel" class="carousel slide" data-bs-ride="false">
-          <div class="carousel-inner" id="internshipCarouselInner">
-            <!-- Slides will be dynamically built with test1.png, test2.png -->
+    <!-- MODAL: Capstone Screenshots (test3.png, test4.png from IMAGE) -->
+    <div
+      class="modal fade"
+      id="capstoneScreenshotModal"
+      tabindex="-1"
+      aria-labelledby="capstoneModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+          <div class="modal-header bg-light border-0 rounded-top-4">
+            <h5 class="modal-title fw-bold" id="capstoneModalLabel">
+              <i class="bi bi-kanban-fill me-2 text-primary"></i> Capstone – SMS
+              III System Screenshots
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#internshipCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#internshipCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-        <div class="d-flex justify-content-center gap-3 mt-4">
-          <button class="btn btn-outline-secondary rounded-pill" id="addInternshipSlideBtn"><i class="bi bi-plus-circle"></i> Add new screenshot slide</button>
-          <span class="text-muted small align-self-center"><i class="bi bi-images"></i> Add more screenshots if needed</span>
-        </div>
-      </div>
-      <div class="modal-footer bg-light border-0 rounded-bottom-4">
-        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CAPSTONE MODAL: fixed images test3.png and test4.png from IMAGE folder -->
-<div class="modal fade" id="capstoneScreenshotModal" tabindex="-1" aria-labelledby="capstoneModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content rounded-4 border-0 shadow-lg">
-      <div class="modal-header bg-light border-0 rounded-top-4">
-        <h5 class="modal-title fw-bold" id="capstoneModalLabel"><i class="bi bi-kanban-fill me-2 text-primary"></i> Capstone – SMS III System Screenshots</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-4">
-        <div id="capstoneCarousel" class="carousel slide" data-bs-ride="false">
-          <div class="carousel-inner" id="capstoneCarouselInner">
-            <!-- Slides with test3.png, test4.png -->
+          <div class="modal-body p-4">
+            <div
+              id="capstoneCarousel"
+              class="carousel slide"
+              data-bs-ride="false"
+            >
+              <div class="carousel-inner" id="capstoneCarouselInner"></div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#capstoneCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#capstoneCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <button
+                class="btn btn-outline-secondary rounded-pill"
+                id="addCapstoneSlideBtn"
+              >
+                <i class="bi bi-plus-circle"></i> Add new screenshot slide
+              </button>
+              <span class="text-muted small align-self-center"
+                ><i class="bi bi-images"></i> Add more screenshots</span
+              >
+            </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#capstoneCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#capstoneCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <div class="modal-footer bg-light border-0 rounded-bottom-4">
+            <button
+              type="button"
+              class="btn btn-secondary rounded-pill"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
         </div>
-        <div class="d-flex justify-content-center gap-3 mt-4">
-          <button class="btn btn-outline-secondary rounded-pill" id="addCapstoneSlideBtn"><i class="bi bi-plus-circle"></i> Add new screenshot slide</button>
-          <span class="text-muted small align-self-center"><i class="bi bi-images"></i> Add more screenshots if needed</span>
-        </div>
-      </div>
-      <div class="modal-footer bg-light border-0 rounded-bottom-4">
-        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
-  </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-  (function() {
-    // Helper: create carousel item with given image src, alt text, active flag
-    function createSlideItem(imageUrl, altText, isActive = false) {
-      const div = document.createElement('div');
-      div.className = 'carousel-item' + (isActive ? ' active' : '');
-      div.innerHTML = `
+    <script>
+      (function () {
+        function createSlideItem(imageUrl, altText, isActive = false) {
+          const div = document.createElement("div");
+          div.className = "carousel-item" + (isActive ? " active" : "");
+          div.innerHTML = `
         <div class="screenshot-carousel-item text-center p-3">
           <img src="${imageUrl}" class="d-block w-100 carousel-img-fixed" alt="${altText}" style="border-radius: 20px; object-fit: contain;">
         </div>
       `;
-      return div;
-    }
+          return div;
+        }
 
-    // INTERNSHIP CAROUSEL: initial images test1.png, test2.png from IMAGE folder
-    const internshipCarouselInner = document.getElementById('internshipCarouselInner');
-    let internshipSlideCount = 0;
-    
-    function initInternshipSlides() {
-      internshipCarouselInner.innerHTML = '';
-      internshipSlideCount = 0;
-      const img1 = "IMAGE/test1.png";
-      const img2 = "IMAGE/test2.png";
-      const fallbackPlaceholder = "https://via.placeholder.com/1200x600?text=Image+Not+Found";
-      // create slides with error handling on image load failure
-      const slide1 = createSlideItem(img1, "Internship Screenshot 1", true);
-      const slide2 = createSlideItem(img2, "Internship Screenshot 2", false);
-      
-      // add fallback for images that fail to load
-      const imgs1 = slide1.querySelector('img');
-      const imgs2 = slide2.querySelector('img');
-      if (imgs1) { imgs1.onerror = function() { this.src = fallbackPlaceholder; this.alt = "Placeholder: test1.png missing"; }; }
-      if (imgs2) { imgs2.onerror = function() { this.src = fallbackPlaceholder; this.alt = "Placeholder: test2.png missing"; }; }
-      
-      internshipCarouselInner.appendChild(slide1);
-      internshipCarouselInner.appendChild(slide2);
-      internshipSlideCount = 2;
-    }
-    
-    function addInternshipSlide() {
-      const placeholderImg = "https://via.placeholder.com/1200x600?text=New+Screenshot+Placeholder+%23" + (internshipSlideCount+1);
-      const newSlide = createSlideItem(placeholderImg, "Additional screenshot", false);
-      internshipCarouselInner.appendChild(newSlide);
-      internshipSlideCount++;
-      // set error fallback for new slide placeholder
-      const newImg = newSlide.querySelector('img');
-      if (newImg) { newImg.onerror = function() { this.src = "https://via.placeholder.com/1200x600?text=Image+Not+Found"; }; }
-    }
-    
-    // CAPSTONE CAROUSEL: initial images test3.png, test4.png
-    const capstoneCarouselInner = document.getElementById('capstoneCarouselInner');
-    let capstoneSlideCount = 0;
-    
-    function initCapstoneSlides() {
-      capstoneCarouselInner.innerHTML = '';
-      capstoneSlideCount = 0;
-      const imgCap1 = "IMAGE/test3.png";
-      const imgCap2 = "IMAGE/test4.png";
-      const fallbackCap = "https://via.placeholder.com/1200x600?text=Image+Not+Found";
-      const slideCap1 = createSlideItem(imgCap1, "Capstone Screenshot 1", true);
-      const slideCap2 = createSlideItem(imgCap2, "Capstone Screenshot 2", false);
-      
-      const imgElem1 = slideCap1.querySelector('img');
-      const imgElem2 = slideCap2.querySelector('img');
-      if (imgElem1) { imgElem1.onerror = function() { this.src = fallbackCap; this.alt = "test3.png missing"; }; }
-      if (imgElem2) { imgElem2.onerror = function() { this.src = fallbackCap; this.alt = "test4.png missing"; }; }
-      
-      capstoneCarouselInner.appendChild(slideCap1);
-      capstoneCarouselInner.appendChild(slideCap2);
-      capstoneSlideCount = 2;
-    }
-    
-    function addCapstoneSlide() {
-      const placeholderCap = "https://via.placeholder.com/1200x600?text=New+Capstone+Screenshot+%23" + (capstoneSlideCount+1);
-      const newCapSlide = createSlideItem(placeholderCap, "Additional capstone screenshot", false);
-      capstoneCarouselInner.appendChild(newCapSlide);
-      capstoneSlideCount++;
-      const newCapImg = newCapSlide.querySelector('img');
-      if (newCapImg) { newCapImg.onerror = function() { this.src = "https://via.placeholder.com/1200x600?text=Image+Not+Found"; }; }
-    }
-    
-    // Initialize both carousels
-    initInternshipSlides();
-    initCapstoneSlides();
-    
-    // Attach button events for adding slides (remove any instructional overlays/alerts, just functional)
-    const addInternBtn = document.getElementById('addInternshipSlideBtn');
-    if (addInternBtn) {
-      addInternBtn.addEventListener('click', addInternshipSlide);
-    }
-    const addCapBtn = document.getElementById('addCapstoneSlideBtn');
-    if (addCapBtn) {
-      addCapBtn.addEventListener('click', addCapstoneSlide);
-    }
-    
-    // Small tweak: reinitialize carousel instance when new slides added? Bootstrap carousel works dynamically.
-    // For newly added slides we don't need to rebind, but to ensure carousel controls handle new items we just let Bootstrap manage.
-    // Also handle profile image error fallback
-    const profileImgElem = document.getElementById('profileImage');
-    if (profileImgElem) {
-      profileImgElem.onerror = function() {
-        this.src = "https://via.placeholder.com/400x400?text=test5.png+Not+Found";
-      };
-    }
-  })();
-</script>
-</body>
+        // INTERNSHIP: test1.png, test2.png
+        const internshipContainer = document.getElementById(
+          "internshipCarouselInner",
+        );
+        let internCount = 0;
+        function initInternship() {
+          internshipContainer.innerHTML = "";
+          internCount = 0;
+          const imgPaths = ["IMAGE/test1.png", "IMAGE/test2.png"];
+          const fallback =
+            "https://via.placeholder.com/1200x600?text=Image+Not+Found";
+          imgPaths.forEach((path, idx) => {
+            const slide = createSlideItem(
+              path,
+              `Internship screenshot ${idx + 1}`,
+              idx === 0,
+            );
+            const imgEl = slide.querySelector("img");
+            if (imgEl)
+              imgEl.onerror = function () {
+                this.src = fallback;
+              };
+            internshipContainer.appendChild(slide);
+            internCount++;
+          });
+        }
+        function addInternSlide() {
+          const placeholder = `https://via.placeholder.com/1200x600?text=Additional+Screenshot+${internCount + 1}`;
+          const newSlide = createSlideItem(
+            placeholder,
+            "Extra screenshot",
+            false,
+          );
+          internshipContainer.appendChild(newSlide);
+          internCount++;
+        }
+
+        // CAPSTONE: test3.png, test4.png
+        const capstoneContainer = document.getElementById(
+          "capstoneCarouselInner",
+        );
+        let capCount = 0;
+        function initCapstone() {
+          capstoneContainer.innerHTML = "";
+          capCount = 0;
+          const capPaths = ["IMAGE/test3.png", "IMAGE/test4.png"];
+          const capFallback =
+            "https://via.placeholder.com/1200x600?text=Capstone+Image+Missing";
+          capPaths.forEach((path, idx) => {
+            const slide = createSlideItem(
+              path,
+              `Capstone screenshot ${idx + 1}`,
+              idx === 0,
+            );
+            const imgEl = slide.querySelector("img");
+            if (imgEl)
+              imgEl.onerror = function () {
+                this.src = capFallback;
+              };
+            capstoneContainer.appendChild(slide);
+            capCount++;
+          });
+        }
+        function addCapSlide() {
+          const placeholder = `https://via.placeholder.com/1200x600?text=New+Capstone+${capCount + 1}`;
+          const newSlide = createSlideItem(
+            placeholder,
+            "Extra capstone image",
+            false,
+          );
+          capstoneContainer.appendChild(newSlide);
+          capCount++;
+        }
+
+        initInternship();
+        initCapstone();
+
+        document
+          .getElementById("addInternshipSlideBtn")
+          .addEventListener("click", addInternSlide);
+        document
+          .getElementById("addCapstoneSlideBtn")
+          .addEventListener("click", addCapSlide);
+
+        const profileImg = document.getElementById("profileImage");
+        if (profileImg)
+          profileImg.onerror = function () {
+            this.src =
+              "https://via.placeholder.com/400x400?text=Profile+Missing";
+          };
+      })();
+    </script>
+  </body>
 </html>
